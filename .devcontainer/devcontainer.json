@@ -2,6 +2,7 @@
   "name": "MarZ - z/OS Job Scheduler",
   "dockerComposeFile": "../compose.yaml",
   "service": "app",
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "22"
