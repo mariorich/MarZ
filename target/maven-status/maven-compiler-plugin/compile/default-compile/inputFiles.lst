@@ -1,7 +1,10 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/MarzSchedulerApplication.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/config/SchedulingConfig.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/config/ZosmfHttpClientConfig.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/config/ZosmfProperties.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobDefinitionController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobScheduleController.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfDiagnosticController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/AttemptStatus.java
@@ -20,3 +23,5 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobScheduleService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionProcessor.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobSubmissionService.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfSubmissionException.java
