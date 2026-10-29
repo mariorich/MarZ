@@ -1,7 +1,12 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/MarzSchedulerApplication.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobDefinitionController.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobScheduleController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/JobDefinition.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/JobSchedule.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/repository/JobDefinitionRepository.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/repository/JobScheduleRepository.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionNotFoundException.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionService.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobScheduleService.java

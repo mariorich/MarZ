@@ -1,7 +1,12 @@
 com/marz/scheduler/controller/JobDefinitionController.class
 com/marz/scheduler/dto/CreateJobDefinitionRequest.class
+com/marz/scheduler/repository/JobScheduleRepository.class
 com/marz/scheduler/MarzSchedulerApplication.class
-com/marz/scheduler/service/JobDefinitionService.class
+com/marz/scheduler/dto/CreateJobScheduleRequest.class
 com/marz/scheduler/service/JobDefinitionNotFoundException.class
+com/marz/scheduler/service/JobScheduleService.class
+com/marz/scheduler/service/JobDefinitionService.class
 com/marz/scheduler/repository/JobDefinitionRepository.class
 com/marz/scheduler/entity/JobDefinition.class
+com/marz/scheduler/controller/JobScheduleController.class
+com/marz/scheduler/entity/JobSchedule.class
