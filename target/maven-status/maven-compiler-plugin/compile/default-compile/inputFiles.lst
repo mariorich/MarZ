@@ -6,6 +6,7 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobScheduleController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfDiagnosticController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfJobController.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfJobStatusDiagnosticController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitRequest.java
@@ -26,5 +27,6 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobScheduleService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionProcessor.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobStatusService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobSubmissionService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfSubmissionException.java

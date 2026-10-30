@@ -1,5 +1,6 @@
 {
   "name": "MarZ - z/OS Job Scheduler",
+  "postStartCommand": "bash .devcontainer/setup-hosts.sh",
   "dockerComposeFile": "../compose.yaml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -49,6 +50,5 @@
       ]
     }
   },
-  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs postgresql-client && git lfs install && npm install -g @zowe/cli",
-  "postStartCommand": "bash .devcontainer/setup-hosts.sh"
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y git-lfs postgresql-client && git lfs install && npm install -g @zowe/cli"
 }

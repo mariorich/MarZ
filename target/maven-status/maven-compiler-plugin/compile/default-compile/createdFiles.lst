@@ -6,6 +6,7 @@ com/marz/scheduler/entity/JobExecution.class
 com/marz/scheduler/service/JobDefinitionNotFoundException.class
 com/marz/scheduler/repository/JobAttemptRepository.class
 com/marz/scheduler/entity/AttemptStatus.class
+com/marz/scheduler/service/ZosmfJobStatusService.class
 com/marz/scheduler/entity/JobDefinition.class
 com/marz/scheduler/entity/ExecutionStatus.class
 com/marz/scheduler/entity/JobSchedule.class
@@ -15,6 +16,7 @@ com/marz/scheduler/entity/JobAttempt.class
 com/marz/scheduler/service/ZosmfJobSubmissionService.class
 com/marz/scheduler/dto/CreateJobDefinitionRequest.class
 com/marz/scheduler/config/SchedulingConfig.class
+com/marz/scheduler/controller/ZosmfJobStatusDiagnosticController.class
 com/marz/scheduler/config/ZosmfHttpClientConfig.class
 com/marz/scheduler/MarzSchedulerApplication.class
 com/marz/scheduler/dto/CreateJobScheduleRequest.class
