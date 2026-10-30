@@ -5,8 +5,11 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobDefinitionController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobScheduleController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfDiagnosticController.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfJobController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitRequest.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitResponse.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/AttemptStatus.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/ExecutionStatus.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/ExecutionTriggerType.java

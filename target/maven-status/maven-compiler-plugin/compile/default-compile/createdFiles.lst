@@ -1,3 +1,4 @@
+com/marz/scheduler/dto/ZosmfSubmitRequest.class
 com/marz/scheduler/controller/JobDefinitionController.class
 com/marz/scheduler/entity/ExecutionTriggerType.class
 com/marz/scheduler/repository/JobScheduleRepository.class
@@ -17,10 +18,12 @@ com/marz/scheduler/config/SchedulingConfig.class
 com/marz/scheduler/config/ZosmfHttpClientConfig.class
 com/marz/scheduler/MarzSchedulerApplication.class
 com/marz/scheduler/dto/CreateJobScheduleRequest.class
+com/marz/scheduler/dto/ZosmfSubmitResponse.class
 com/marz/scheduler/service/JobScheduleService.class
 com/marz/scheduler/controller/ZosmfDiagnosticController.class
 com/marz/scheduler/repository/JobExecutionRepository.class
 com/marz/scheduler/service/DueScheduleProcessor.class
+com/marz/scheduler/controller/ZosmfJobController.class
 com/marz/scheduler/service/JobDefinitionService.class
 com/marz/scheduler/service/QueuedExecutionProcessor.class
 com/marz/scheduler/repository/JobDefinitionRepository.class
