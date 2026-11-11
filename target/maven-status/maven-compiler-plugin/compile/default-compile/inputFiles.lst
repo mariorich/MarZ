@@ -3,11 +3,13 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/config/ZosmfHttpClientConfig.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/config/ZosmfProperties.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobDefinitionController.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobExecutionController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/JobScheduleController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfDiagnosticController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfJobController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/controller/ZosmfJobStatusDiagnosticController.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobExecutionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitResponse.java
@@ -25,7 +27,10 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/DueScheduleProcessor.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionNotFoundException.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionService.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobExecutionService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobScheduleService.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobStatusPollingProcessor.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobStatusUpdateService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionClaimService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionProcessor.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobStatusService.java
