@@ -47,7 +47,16 @@ public class JobStatusUpdateService {
                         "Job execution not found: "
                                 + attempt.getExecutionId()));
 
+        // Use the actual JES submission timestamp whenever available.
+        Instant actualSubmittedAt =
+                parseTimestamp(zosmfStatus, "exec-submitted");
+
+        if (actualSubmittedAt != null) {
+            attempt.setSubmittedAt(actualSubmittedAt);
+        }
+
         // Do not allow a completed attempt to return to a previous state.
+        // The submission timestamp above can still be corrected.
         if (attempt.getStatus() == AttemptStatus.SUCCEEDED
                 || attempt.getStatus() == AttemptStatus.FAILED) {
             return;
@@ -66,29 +75,55 @@ public class JobStatusUpdateService {
 
         if ("ACTIVE".equals(zosmfJobStatus)) {
 
-            Instant now = Instant.now();
+            Instant actualStartedAt =
+                    parseTimestamp(zosmfStatus, "exec-started");
+
+            Instant startedAt = actualStartedAt != null
+                    ? actualStartedAt
+                    : Instant.now();
 
             attempt.setStatus(AttemptStatus.RUNNING);
 
-            if (attempt.getStartedAt() == null) {
-                attempt.setStartedAt(now);
+            if (attempt.getStartedAt() == null
+                    || actualStartedAt != null) {
+                attempt.setStartedAt(startedAt);
             }
 
             execution.setStatus(ExecutionStatus.RUNNING);
 
-            if (execution.getStartedAt() == null) {
-                execution.setStartedAt(now);
+            if (execution.getStartedAt() == null
+                    || actualStartedAt != null) {
+                execution.setStartedAt(startedAt);
             }
 
         } else if ("OUTPUT".equals(zosmfJobStatus)) {
 
             Instant now = Instant.now();
 
+            Instant actualStartedAt =
+                    parseTimestamp(zosmfStatus, "exec-started");
+
+            Instant actualFinishedAt =
+                    parseTimestamp(zosmfStatus, "exec-ended");
+
             attempt.setReturnCode(
                     returnCode.isBlank() ? null : returnCode);
 
-            attempt.setFinishedAt(now);
-            execution.setFinishedAt(now);
+            // Use actual JES start time whenever available.
+            if (actualStartedAt != null) {
+                attempt.setStartedAt(actualStartedAt);
+                execution.setStartedAt(actualStartedAt);
+            } else if (attempt.getStartedAt() == null) {
+                attempt.setStartedAt(now);
+            }
+
+            // Use actual JES end time whenever available.
+            Instant finishedAt = actualFinishedAt != null
+                    ? actualFinishedAt
+                    : now;
+
+            attempt.setFinishedAt(finishedAt);
+            execution.setFinishedAt(finishedAt);
 
             if (SUCCESS_RETURN_CODE.matcher(returnCode).matches()) {
 
@@ -112,5 +147,16 @@ public class JobStatusUpdateService {
         }
 
         // Other JES statuses are deliberately left unchanged.
+    }
+
+    private Instant parseTimestamp(JsonNode node, String field) {
+
+        String value = node.path(field).asText("").trim();
+
+        if (value.isBlank()) {
+            return null;
+        }
+
+        return Instant.parse(value);
     }
 }

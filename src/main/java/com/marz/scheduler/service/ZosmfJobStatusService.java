@@ -74,12 +74,13 @@ public class ZosmfJobStatusService {
                     credentials.getBytes(StandardCharsets.UTF_8));
 
             String endpoint = baseUrl.replaceAll("/+$", "")
-                    + "/zosmf/restjobs/jobs/"
-                    + URLEncoder.encode(
-                            jobName, StandardCharsets.UTF_8)
-                    + "/"
-                    + URLEncoder.encode(
-                            jobId, StandardCharsets.UTF_8);
+                + "/zosmf/restjobs/jobs/"
+                + URLEncoder.encode(
+                        jobName, StandardCharsets.UTF_8)
+                + "/"
+                + URLEncoder.encode(
+                        jobId, StandardCharsets.UTF_8)
+                + "?exec-data=Y";
 
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(endpoint))
