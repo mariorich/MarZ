@@ -13,10 +13,12 @@ com/marz/scheduler/controller/JobExecutionController.class
 com/marz/scheduler/service/JobExecutionService.class
 com/marz/scheduler/service/QueuedExecutionClaimService.class
 com/marz/scheduler/entity/JobDefinition.class
+com/marz/scheduler/dto/JobAttemptResponse.class
 com/marz/scheduler/entity/ExecutionStatus.class
 com/marz/scheduler/entity/JobSchedule.class
 com/marz/scheduler/config/ZosmfProperties.class
 com/marz/scheduler/service/ZosmfSubmissionException.class
+com/marz/scheduler/dto/JobExecutionSummaryResponse.class
 com/marz/scheduler/entity/JobAttempt.class
 com/marz/scheduler/service/ZosmfJobSubmissionService.class
 com/marz/scheduler/dto/CreateJobDefinitionRequest.class
@@ -31,6 +33,7 @@ com/marz/scheduler/service/QueuedExecutionClaimService$ClaimedExecution.class
 com/marz/scheduler/controller/ZosmfDiagnosticController.class
 com/marz/scheduler/repository/JobExecutionRepository.class
 com/marz/scheduler/service/DueScheduleProcessor.class
+com/marz/scheduler/dto/JobExecutionDetailResponse.class
 com/marz/scheduler/controller/ZosmfJobController.class
 com/marz/scheduler/service/JobDefinitionService.class
 com/marz/scheduler/service/QueuedExecutionProcessor.class

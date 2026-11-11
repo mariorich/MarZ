@@ -32,8 +32,8 @@ public class ZosmfJobController {
         );
 
         ZosmfSubmitResponse response = new ZosmfSubmitResponse(
-                result.path("jobid").asText(),
-                result.path("jobname").asText()
+                result.path("jobid").asString(),
+                result.path("jobname").asString()
         );
 
         return ResponseEntity.accepted().body(response);

@@ -11,6 +11,9 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobDefinitionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobExecutionRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/CreateJobScheduleRequest.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/JobAttemptResponse.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/JobExecutionDetailResponse.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/JobExecutionSummaryResponse.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitRequest.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/dto/ZosmfSubmitResponse.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/entity/AttemptStatus.java

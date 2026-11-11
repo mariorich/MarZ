@@ -1,6 +1,8 @@
 package com.marz.scheduler.controller;
 
 import com.marz.scheduler.dto.CreateJobExecutionRequest;
+import com.marz.scheduler.dto.JobExecutionDetailResponse;
+import com.marz.scheduler.dto.JobExecutionSummaryResponse;
 import com.marz.scheduler.entity.JobExecution;
 import com.marz.scheduler.service.JobExecutionService;
 
@@ -10,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/executions")
@@ -33,5 +37,28 @@ public class JobExecutionController {
                         "/api/executions/" + created.getId()
                 ))
                 .body(created);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<JobExecutionSummaryResponse>> getAll() {
+        return ResponseEntity.ok(service.getAllExecutions());
+    }
+
+    @GetMapping("/{executionId}")
+    public ResponseEntity<JobExecutionDetailResponse> getById(
+            @PathVariable UUID executionId) {
+
+        return ResponseEntity.ok(
+                service.getExecution(executionId)
+        );
+    }
+
+    @GetMapping("/job-definition/{jobDefinitionId}")
+    public ResponseEntity<List<JobExecutionSummaryResponse>> getByJobDefinition(
+            @PathVariable UUID jobDefinitionId) {
+
+        return ResponseEntity.ok(
+                service.getExecutionsForJob(jobDefinitionId)
+        );
     }
 }
