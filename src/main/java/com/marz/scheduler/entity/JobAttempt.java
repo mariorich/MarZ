@@ -37,12 +37,15 @@ public class JobAttempt {
     @Column(name = "jes_job_id")
     private String jesJobId;
 
+    @Column(name = "jes_job_name")
+    private String jesJobName;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
     private AttemptStatus status = AttemptStatus.PENDING;
 
     @Column(name = "return_code")
-    private Integer returnCode;
+    private String returnCode;
 
     @Column(name = "submitted_at")
     private Instant submittedAt;
@@ -96,6 +99,14 @@ public class JobAttempt {
         this.jesJobId = jesJobId;
     }
 
+    public String getJesJobName() {
+        return jesJobName;
+    }
+
+    public void setJesJobName(String jesJobName) {
+        this.jesJobName = jesJobName;
+    }
+
     public AttemptStatus getStatus() {
         return status;
     }
@@ -104,11 +115,11 @@ public class JobAttempt {
         this.status = status;
     }
 
-    public Integer getReturnCode() {
+    public String getReturnCode() {
         return returnCode;
     }
 
-    public void setReturnCode(Integer returnCode) {
+    public void setReturnCode(String returnCode) {
         this.returnCode = returnCode;
     }
 

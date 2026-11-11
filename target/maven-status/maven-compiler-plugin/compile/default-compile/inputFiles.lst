@@ -26,6 +26,7 @@
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionNotFoundException.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobDefinitionService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/JobScheduleService.java
+/workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionClaimService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/QueuedExecutionProcessor.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobStatusService.java
 /workspaces/MarZ/MarZ/src/main/java/com/marz/scheduler/service/ZosmfJobSubmissionService.java
