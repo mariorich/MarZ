@@ -39,6 +39,15 @@ public class JobExecutionController {
                 .body(created);
     }
 
+    @PostMapping("/{executionId}/retry")
+    public ResponseEntity<JobExecution> retry(
+            @PathVariable UUID executionId) {
+
+        return ResponseEntity.ok(
+                service.retryExecution(executionId)
+        );
+    }
+
     @GetMapping
     public ResponseEntity<List<JobExecutionSummaryResponse>> getAll() {
         return ResponseEntity.ok(service.getAllExecutions());
