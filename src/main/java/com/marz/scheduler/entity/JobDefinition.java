@@ -42,7 +42,7 @@ public class JobDefinition {
     @Column(name = "enabled", nullable = false)
     private boolean enabled = true;
 
-    @Min(1)
+    @Min(0)
     @Column(name = "max_attempts", nullable = false)
     private int maxAttempts = 1;
 
