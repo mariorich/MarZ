@@ -22,7 +22,7 @@ public class CreateJobDefinitionRequest {
     private String jclMember;
 
     @NotNull
-    @Min(1)
+    @Min(0)
     private Integer maxAttempts = 1;
 
     public String getName() {
