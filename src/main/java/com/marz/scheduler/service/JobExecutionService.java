@@ -4,8 +4,10 @@ import com.marz.scheduler.dto.CreateJobExecutionRequest;
 import com.marz.scheduler.dto.JobAttemptResponse;
 import com.marz.scheduler.dto.JobExecutionDetailResponse;
 import com.marz.scheduler.dto.JobExecutionSummaryResponse;
+import com.marz.scheduler.entity.AttemptStatus;
 import com.marz.scheduler.entity.ExecutionStatus;
 import com.marz.scheduler.entity.ExecutionTriggerType;
+import com.marz.scheduler.entity.JobAttempt;
 import com.marz.scheduler.entity.JobExecution;
 import com.marz.scheduler.repository.JobAttemptRepository;
 import com.marz.scheduler.repository.JobDefinitionRepository;
@@ -62,6 +64,79 @@ public class JobExecutionService {
         execution.setJobDefinitionId(definition.getId());
         execution.setTriggerType(ExecutionTriggerType.MANUAL);
         execution.setStatus(ExecutionStatus.QUEUED);
+
+        return executionRepository.save(execution);
+    }
+
+    @Transactional
+    public JobExecution retryExecution(UUID executionId) {
+
+        JobExecution execution = executionRepository
+                .findByIdForUpdate(executionId)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Execution not found: " + executionId
+                ));
+
+        if (execution.getStatus() != ExecutionStatus.FAILED) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Only FAILED executions can be retried"
+            );
+        }
+
+        List<JobAttempt> attempts = attemptRepository
+                .findByExecutionIdOrderByAttemptNumberAsc(executionId);
+
+        if (attempts.isEmpty()) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Execution has no attempts to retry"
+            );
+        }
+
+        if (attempts.stream().anyMatch(
+                attempt -> attempt.getStatus() == AttemptStatus.UNKNOWN)) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Execution has an UNKNOWN attempt. Reconcile it before retrying."
+            );
+        }
+
+        JobAttempt latestAttempt = attempts.get(attempts.size() - 1);
+
+        if (latestAttempt.getStatus() != AttemptStatus.FAILED) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "The latest attempt must be FAILED before it can be retried"
+            );
+        }
+
+        var definition = definitionRepository
+                .findById(execution.getJobDefinitionId())
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Job definition not found: "
+                                + execution.getJobDefinitionId()
+                ));
+
+        int nextAttemptNumber = latestAttempt.getAttemptNumber() + 1;
+        int maxAttempts = definition.getMaxAttempts();
+
+        // Zero means unlimited. Otherwise maxAttempts includes the first run.
+        if (maxAttempts > 0 && nextAttemptNumber > maxAttempts) {
+            throw new ResponseStatusException(
+                    HttpStatus.CONFLICT,
+                    "Maximum attempts reached (" + maxAttempts + ")"
+            );
+        }
+
+        // The claim worker creates the next PENDING attempt when it claims
+        // this queued execution. Existing attempts remain unchanged.
+        execution.setStatus(ExecutionStatus.QUEUED);
+        execution.setStartedAt(null);
+        execution.setFinishedAt(null);
+        execution.setErrorMessage(null);
 
         return executionRepository.save(execution);
     }
