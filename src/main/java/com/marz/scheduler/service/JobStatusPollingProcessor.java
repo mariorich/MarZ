@@ -75,7 +75,7 @@ public class JobStatusPollingProcessor {
                     "JES job {} / {} status: {}",
                     jobName,
                     jobId,
-                    zosmfStatus.path("status").asText()
+                    zosmfStatus.path("status").asString()
             );
 
         } catch (Exception e) {
