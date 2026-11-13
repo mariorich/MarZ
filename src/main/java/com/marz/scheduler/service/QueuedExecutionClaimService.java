@@ -1,9 +1,9 @@
 package com.marz.scheduler.service;
 
 import com.marz.scheduler.entity.AttemptStatus;
+import com.marz.scheduler.entity.ExecutionStatus;
 import com.marz.scheduler.entity.JobAttempt;
 import com.marz.scheduler.entity.JobExecution;
-import com.marz.scheduler.entity.ExecutionStatus;
 import com.marz.scheduler.repository.JobAttemptRepository;
 import com.marz.scheduler.repository.JobExecutionRepository;
 
@@ -41,9 +41,17 @@ public class QueuedExecutionClaimService {
 
     private ClaimedExecution claimExecution(JobExecution execution) {
 
+        List<JobAttempt> previousAttempts = attemptRepository
+                .findByExecutionIdOrderByAttemptNumberAsc(execution.getId());
+
+        int nextAttemptNumber = previousAttempts.stream()
+                .mapToInt(JobAttempt::getAttemptNumber)
+                .max()
+                .orElse(0) + 1;
+
         JobAttempt attempt = new JobAttempt();
         attempt.setExecutionId(execution.getId());
-        attempt.setAttemptNumber(1);
+        attempt.setAttemptNumber(nextAttemptNumber);
         attempt.setStatus(AttemptStatus.PENDING);
 
         attemptRepository.save(attempt);
